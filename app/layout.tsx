@@ -1,20 +1,25 @@
-import { FC, ReactNode } from 'react';
+import Link from "next/link";
+import Provider from "./Provider";
+import Header from "./Header";
+ import Main from "./Main";
+ import Footer from "./Footer";
 
-type Props = {
-  children?: ReactNode;
-}
 
-const HomeLayout: FC<Props> = ({ children }) => {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <div
-      style={{
-        padding: '20px',
-        background: '#ddd',
-      }}
-    >
-      {children}
-    </div>
+    <html lang="ja">
+      <head />
+      <body>
+        <Provider>
+          <Header />
+           <Main>{children}</Main>
+           <Footer />
+        </Provider>
+      </body>
+    </html>
   );
-};
-
-export default HomeLayout;
+}
