@@ -8,16 +8,16 @@ type Props = {
 const Content = ({ book }: Props) => {
   return <BookContent book={book} />;
 };
-export const getServerSideProps = async () => {
-  const book = (
-    await client.query({
-      query: GetBooksDocument,
-    })
-  ).data;
-  return {
-    props: {
-      ...book,
-    },
-  };
-};
+// export const getServerSideProps = async () => {
+//   const book = (
+//     await client.query({
+//       query: GetBooksDocument,
+//     })
+//   ).data;
+//   return {
+//     props: {
+//       ...book,
+//     },
+//   };
+// };
 export default Content;
